@@ -57,13 +57,15 @@
         canvas.lineTo(100, 100);
         canvas.quadraticCurveTo(100, 80,120, 80);
         canvas.lineTo(300, 80);
+        canvas.lineTo(100, 300);
         // canvas.quadraticCurveTo(300, 100, 300, 300);
         // canvas.bezierCurveTo(20,25,20,62.5,20,62.5);
         // canvas.bezierCurveTo(20,80,40,102,75,120);
         // canvas.bezierCurveTo(110,102,130,80,130,62.5);
         // canvas.bezierCurveTo(130,62.5,130,25,100,25);
         // canvas.bezierCurveTo(85,25,75,37,75,40);
-        //canvas.fill();
+        canvas.fillStyle = "red";
+        canvas.fill();
         canvas.stroke();
       });
 
