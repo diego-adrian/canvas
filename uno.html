@@ -67,19 +67,27 @@
         canvas.stroke();
       });
 
+      // https://desarrolloweb.com/articulos/curvas-bezier-canvas.html
 
       var btnDibujarCurvas = document.querySelector('#dibujarCurvas');
       btnDibujarCurvas.addEventListener('click', () => {
         // 2*Math.PI es la manera corta de expresar 360 grados
+        canvas.clearRect(0,0, 400, 400);
         canvas.beginPath();
         canvas.moveTo(100, 100);
-        canvas.bezierCurveTo(100, 100, 100, 100, 100, 100);
+        canvas.bezierCurveTo(150, 200, 250, 0, 300, 120);
+        canvas.moveTo(100, 200);
+        canvas.bezierCurveTo(150, 300, 250, 100, 300, 220);
+        canvas.moveTo(100, 200);
+        canvas.lineTo(100, 100);        
+        canvas.moveTo(300, 220);
+        canvas.lineTo(300, 120);        
+
         // canvas.bezierCurveTo(20,25,20,62.5,20,62.5);
         // canvas.bezierCurveTo(20,80,40,102,75,120);
         // canvas.bezierCurveTo(110,102,130,80,130,62.5);
         // canvas.bezierCurveTo(130,62.5,130,25,100,25);
         // canvas.bezierCurveTo(85,25,75,37,75,40);
-        //canvas.fill();
         canvas.stroke();
       });
     });
