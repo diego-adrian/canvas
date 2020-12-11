@@ -7,6 +7,83 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
   <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+  <script>
+    window.addEventListener('load', () => {
+      var canvas = document.querySelector('#canvas');
+      canvas = canvas.getContext('2d');
+      var btnDibujarLineas = document.querySelector('#dibujarLineas');
+      btnDibujarLineas.addEventListener('click', () => {
+        canvas.clearRect(0,0,400,400);  // limpiar todo el canvas
+        canvas.beginPath();
+        canvas.moveTo(0,0); // Movernos al inicio de nuestra linea
+        canvas.lineTo(200,200); // Dibujaremos hasta este punto la linea
+        // canvas.moveTo(200,200); // Movernos al inicio de nuestra linea
+        canvas.lineTo(0, 400); // Dibujaremos hasta este punto la linea
+        canvas.lineTo(0, 0); // Dibujaremos hasta este punto la linea
+        canvas.lineWidth = 1; // Grosor de la linea
+        // canvas.strokeStyle = '#FF0000'; // Para definir el color de la linea
+        canvas.stroke(); // Dibuja el contorno de la forma.
+        // canvas.fill(); // Rellena creando una figura solida y no es necesario el closePath
+        canvas.closePath();
+      });
+
+
+      var btnDibujarArcos = document.querySelector('#dibujarArcos');
+      btnDibujarArcos.addEventListener('click', () => {
+        // 2*Math.PI es la manera corta de expresar 360 grados
+        canvas.beginPath();
+        // const radianes = (Math.PI / 180) * 180;
+        // canvas.strokeStyle = '#000000'; // Para definir el color de la linea
+        // X, Y, RADIO, angulo inicial, angulo final, Sentido antihorario (Dibuja ak reves o a las manecillas del reloj)
+        // canvas.arc(100,100,50,0,radianes,true);
+        canvas.arc(75,75,50,0,Math.PI*2,true); // Círculo externo
+        canvas.moveTo(110,75); // Es necesario para simular salto a otro punto, si no sera una sola linea dibujando la cara
+        canvas.arc(75,75,35,0,Math.PI,false);   // Boca (contra reloj)
+        canvas.moveTo(65,65);
+        canvas.arc(60,65,5,0,Math.PI*2,true);  // Ojo izquierdo
+        canvas.moveTo(95,65);
+        canvas.arc(90,65,5,0,Math.PI*2,true);  // Ojo derecho
+        canvas.stroke();
+        // canvas.fill();
+        canvas.closePath();
+      });
+
+
+      var btnDibujarCurvasCuadradas = document.querySelector('#dibujarCurvaCuadrada');
+      dibujarCurvaCuadrada.addEventListener('click', () => {
+        
+        canvas.beginPath();
+        canvas.moveTo(100, 300);
+        canvas.lineTo(100, 100);
+        canvas.quadraticCurveTo(100, 80,120, 80);
+        canvas.lineTo(300, 80);
+        // canvas.quadraticCurveTo(300, 100, 300, 300);
+        // canvas.bezierCurveTo(20,25,20,62.5,20,62.5);
+        // canvas.bezierCurveTo(20,80,40,102,75,120);
+        // canvas.bezierCurveTo(110,102,130,80,130,62.5);
+        // canvas.bezierCurveTo(130,62.5,130,25,100,25);
+        // canvas.bezierCurveTo(85,25,75,37,75,40);
+        //canvas.fill();
+        canvas.stroke();
+      });
+
+
+      var btnDibujarCurvas = document.querySelector('#dibujarCurvas');
+      btnDibujarCurvas.addEventListener('click', () => {
+        // 2*Math.PI es la manera corta de expresar 360 grados
+        canvas.beginPath();
+        canvas.moveTo(100, 100);
+        canvas.bezierCurveTo(100, 100, 100, 100, 100, 100);
+        // canvas.bezierCurveTo(20,25,20,62.5,20,62.5);
+        // canvas.bezierCurveTo(20,80,40,102,75,120);
+        // canvas.bezierCurveTo(110,102,130,80,130,62.5);
+        // canvas.bezierCurveTo(130,62.5,130,25,100,25);
+        // canvas.bezierCurveTo(85,25,75,37,75,40);
+        //canvas.fill();
+        canvas.stroke();
+      });
+    });
+  </script>
 </head>
 <body>
   <!-- Always shows a header, even in smaller screens. -->
@@ -37,7 +114,21 @@
     </div>
     <main class="mdl-layout__content">
       <div class="page-content">
-
+        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" id="dibujarLineas">
+          Dibujar lineas
+        </button>
+        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" id="dibujarArcos">
+          Dibujar Arcos
+        </button>
+        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" id="dibujarCurvaCuadrada">
+          Dibujar curvas de bezier cuadradas
+        </button>
+        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" id="dibujarCurvas">
+          Dibujar curvas de bezier
+        </button>
+        <canvas width="400" height="400" id="canvas">
+          No soporta canvas tu navegador
+        </canvas>
       </div>
     </main>
   </div>
