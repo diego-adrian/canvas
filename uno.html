@@ -94,6 +94,26 @@
       });
     });
   </script>
+  <style>
+    .page-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .buttons {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-around;
+    }
+    .buttons button {
+      margin: 10px;
+      flex-grow: 1;
+    }
+  </style>
 </head>
 <body>
   <!-- Always shows a header, even in smaller screens. -->
@@ -107,7 +127,7 @@
         <!-- Navigation. We hide it in small screens. -->
         <nav class="mdl-navigation mdl-layout--large-screen-only">
           <a class="mdl-navigation__link" href="uno.html">Módulo 1</a>
-          <a class="mdl-navigation__link" href="">Módulo 2</a>
+          <a class="mdl-navigation__link" href="dos.html">Módulo 2</a>
           <a class="mdl-navigation__link" href="">Módulo 3</a>
           <a class="mdl-navigation__link" href="">Módulo 4</a>
         </nav>
@@ -117,25 +137,27 @@
       <a href="./" class="mdl-layout-title mdl-navigation__link">Canvas</a>
       <nav class="mdl-navigation">
         <a class="mdl-navigation__link" href="uno.html">Módulo 1</a>
-        <a class="mdl-navigation__link" href="">Módulo 2</a>
+        <a class="mdl-navigation__link" href="dos.html">Módulo 2</a>
         <a class="mdl-navigation__link" href="">Módulo 3</a>
         <a class="mdl-navigation__link" href="">Módulo 4</a>
       </nav>
     </div>
     <main class="mdl-layout__content">
       <div class="page-content">
-        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" id="dibujarLineas">
-          Dibujar lineas
-        </button>
-        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" id="dibujarArcos">
-          Dibujar Arcos
-        </button>
-        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" id="dibujarCurvaCuadrada">
-          Dibujar curvas de bezier cuadradas
-        </button>
-        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" id="dibujarCurvas">
-          Dibujar curvas de bezier
-        </button>
+        <div class="buttons">
+          <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" id="dibujarLineas">
+            Dibujar lineas
+          </button>
+          <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" id="dibujarArcos">
+            Dibujar Arcos
+          </button>
+          <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" id="dibujarCurvaCuadrada">
+            Dibujar curvas de bezier cuadradas
+          </button>
+          <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" id="dibujarCurvas">
+            Dibujar curvas de bezier
+          </button>
+        </div>
         <canvas width="400" height="400" id="canvas">
           No soporta canvas tu navegador
         </canvas>
